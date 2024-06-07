@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Text Generator</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #f0f0f0;
+    }
+    canvas {
+      border: 2px solid #000;
+    }
+  </style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+</head>
+<body>
+  <script>
+    let messages = [];
+
+    function setup() {
+      createCanvas(800, 600);
+      textSize(32);
+      textAlign(CENTER, CENTER);
+    }
+
+    function draw() {
+      background(220);
+
+      // Display all messages
+      for (let i = 0; i < messages.length; i++) {
+        text(messages[i].text, messages[i].x, messages[i].y);
+      }
+    }
+
+    function keyPressed() {
+      let x = random(width);
+      let y = random(height);
+      messages.push({ text: "Perdón", x: x, y: y });
+    }
+  </script>
+</body>
+</html>
